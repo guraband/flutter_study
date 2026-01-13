@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_example/widgets/part2/chapter7/screen/new_page.dart';
+import 'package:flutter_example/widgets/part2/chapter7/screen/new_page2.dart';
 
 class Body extends StatelessWidget {
   const Body({super.key});

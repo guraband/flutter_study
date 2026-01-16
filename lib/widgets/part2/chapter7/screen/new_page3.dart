@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../common/MyAppBar.dart';
+import '../../../common/my_app_bar.dart';
 
 class NewPage extends StatelessWidget {
   const NewPage({super.key});

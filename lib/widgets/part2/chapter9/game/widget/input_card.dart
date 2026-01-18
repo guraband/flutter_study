@@ -4,19 +4,19 @@ class InputCard extends StatelessWidget {
   final VoidCallback? callback;
   final Widget child;
 
-  const InputCard({super.key, required this.callback, required this.child});
+  const InputCard({super.key, this.callback, required this.child});
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(onTap: () => callback?.call(), child: InputContents(child: child));
+    return InkWell(
+      onTap: () => callback?.call(),
+      child: InputContents(child: child),
+    );
   }
 }
 
 class InputContents extends StatelessWidget {
-  const InputContents({
-    super.key,
-    required this.child,
-  });
+  const InputContents({super.key, required this.child});
 
   final Widget child;
 

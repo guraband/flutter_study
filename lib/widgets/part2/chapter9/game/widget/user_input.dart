@@ -5,14 +5,26 @@ import 'input_card.dart';
 
 class UserInput extends StatelessWidget {
   final bool isDone;
+  final InputType? userInput;
   final Function(InputType) callback;
 
-  const UserInput({super.key, required this.isDone, required this.callback});
+  const UserInput({
+    super.key,
+    required this.isDone,
+    this.userInput,
+    required this.callback,
+  });
 
   @override
   Widget build(BuildContext context) {
     if (isDone) {
-      return const Placeholder();
+      return Row(
+        children: [
+          Expanded(child: SizedBox.shrink()),
+          Expanded(child: InputCard(child: Image.asset(userInput!.path))),
+          Expanded(child: SizedBox.shrink()),
+        ],
+      );
     }
 
     return Row(children: _getInputs(callback));
@@ -22,8 +34,10 @@ class UserInput extends StatelessWidget {
     return InputType.values
         .map(
           (type) => Expanded(
-            child: InputCard(callback: () => callback(type),
-            child: Image.asset(type.path)),
+            child: InputCard(
+              callback: () => callback(type),
+              child: Image.asset(type.path),
+            ),
           ),
         )
         .toList();
